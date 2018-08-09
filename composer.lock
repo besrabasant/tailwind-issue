@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "718ce52178ac33df2abbfdfb174d2b74",
+    "content-hash": "e20bf1bc7bb6dde184aa2cd900895d1a",
     "packages": [
         {
             "name": "composer/installers",
@@ -402,6 +402,48 @@
                 "environment"
             ],
             "time": "2018-07-29T20:33:41+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/advanced-custom-fields",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.zip?timestamp=1532420277",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/advanced-custom-fields/",
+            "time": "2018-07-24T08:17:57+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/gutenberg",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/gutenberg/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.zip?timestamp=1533841629",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/gutenberg/",
+            "time": "2018-08-09T19:07:09+00:00"
         }
     ],
     "packages-dev": [
@@ -459,7 +501,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpackagist-plugin/gutenberg": 20,
+        "wpackagist-plugin/advanced-custom-fields": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
