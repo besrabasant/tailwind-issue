@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e20bf1bc7bb6dde184aa2cd900895d1a",
+    "content-hash": "836872ba91deaf81425908b712ffcb0b",
     "packages": [
         {
             "name": "composer/installers",
@@ -444,6 +444,26 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/gutenberg/",
             "time": "2018-08-09T19:07:09+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/navz-photo-gallery",
+            "version": "1.6.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/navz-photo-gallery/",
+                "reference": "tags/1.6.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/navz-photo-gallery.1.6.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/navz-photo-gallery/"
         }
     ],
     "packages-dev": [
