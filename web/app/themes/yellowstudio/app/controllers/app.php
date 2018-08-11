@@ -1,5 +1,7 @@
 <?php
 
+// Global data available in all views extending app.blade.php
+
 namespace App;
 
 use Sober\Controller\Controller;
@@ -9,6 +11,11 @@ class App extends Controller
     public function siteName()
     {
         return get_bloginfo('name');
+    }
+
+    public function currentTemplate()
+    {
+        return basename(get_page_template() ,'.blade.php');
     }
 
     public static function title()
@@ -29,5 +36,10 @@ class App extends Controller
             return __('Not Found', 'sage');
         }
         return get_the_title();
+    }
+
+    public static function glideImage()
+    {
+        return str_replace('/app/uploads/', '/img/', get_the_post_thumbnail_url());
     }
 }

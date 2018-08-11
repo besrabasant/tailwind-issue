@@ -10,7 +10,7 @@
 		</div>
 		@endif
 		@include('partials.page-header')
-		@include('partials.content-page')		
+		@include('partials.content-page')
 		@endwhile
 	</div>
 </section>

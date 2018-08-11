@@ -52,7 +52,7 @@ function config($key = null, $default = null)
  */
 function template($file, $data = [])
 {
-    if (remove_action('wp_head', 'wp_enqueue_scripts', 1)) {
+    if (!is_admin() && remove_action('wp_head', 'wp_enqueue_scripts', 1)) {
         wp_enqueue_scripts();
     }
 
@@ -76,7 +76,8 @@ function template_path($file, $data = [])
  */
 function asset_path($asset)
 {
-    return sage('assets')->getUri($asset);
+    // return sage('assets')->getUri($asset);
+    return str_replace('/dist//', '/dist/', sage('assets')->getUri('/' . $asset));
 }
 
 /**

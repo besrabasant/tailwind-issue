@@ -1,0 +1,55 @@
+html, body, * {
+	@apply text-grey-darker;
+
+	@extend .font-A;
+}
+
+.site {
+	@apply w-full h-screen;
+
+	#app {
+		@apply h-screen;
+
+		main {
+			@apply h-full;
+		}
+	}
+}
+
+.brand {
+	@apply no-underline text-3xl text-red font-bold;
+}
+
+.navbar {
+	@apply w-full py-4 fixed;
+}
+
+.sage-menu {
+	@apply list-reset flex;
+
+	.menu-item {
+		@apply inline-block;
+
+		a {
+			@apply no-underline px-2 font-medium;
+		}
+	}
+}
+
+footer {
+	@apply absolute pin-x pin-b mb-4;
+
+	.copyright {
+		@apply text-center text-sm;
+	}
+}
+
+.section {
+	@apply flex justify-center items-center h-full;
+}
+
+.page {
+	p {
+		@apply py-4;
+	}
+}

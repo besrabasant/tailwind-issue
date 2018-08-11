@@ -68,3 +68,25 @@ add_filter('comments_template', function ($comments_template) {
     );
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
+
+/**
+* The sidebar will be displayed if any of the following return true
+*/
+add_filter('sage/display_sidebar', function ($display) {
+    static $display;
+
+    isset($display) || $display = in_array(true, [
+      is_page(),
+    ]);
+
+    return $display;
+});
+
+/**
+ * Glide configuration
+ */
+add_filter('glide/options', function ($options) {
+    $options['cache'] = WP_CONTENT_DIR . '/uploads/cache/glide';
+    $options['max_image_size'] = 2000*2000;
+    return $options;
+});
