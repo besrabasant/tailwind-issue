@@ -14,6 +14,7 @@ require('laravel-mix-purgecss');
 
  mix.setPublicPath('dist')
  .js('resources/assets/js/app.js', 'js/')
+ .js('resources/assets/js/customizer.js', 'js/')
  .extract([
    'babel-polyfill',
    'vue'

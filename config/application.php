@@ -35,8 +35,8 @@ if (file_exists($env_config)) {
 /**
  * URLs
  */
-define('WP_HOME', env('WP_HOME')?: 'http://yellowstudio.theroguepixel.com');
-define('WP_SITEURL', env('WP_SITEURL')?: 'http://yellowstudio.theroguepixel.com/wp');
+define('WP_HOME', env('WP_HOME')?: 'http://yellowstudio.staging.theroguepixel.com');
+define('WP_SITEURL', env('WP_SITEURL')?: 'http://yellowstudio.staging.theroguepixel.com/wp');
 
 /**
  * Custom Content Directory

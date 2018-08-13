@@ -15,7 +15,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('sage/app.css', asset_path('css/app.css'), false, null);
     wp_enqueue_script('sage/manifest.js', asset_path('js/manifest.js'), null, null, true);
     wp_enqueue_script('sage/vendor.js', asset_path('js/vendor.js'), null, null, true);
-    wp_enqueue_script('sage/app.js', asset_path('js/app.js'), null, null, true);
+    wp_enqueue_script('sage/app.js', asset_path('js/app.js'), ['jquery'], null, true);
 }, 100);
 
 /**

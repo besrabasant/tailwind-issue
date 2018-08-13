@@ -20,15 +20,7 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize) 
  * Customizer JS
  */
 add_action('customize_preview_init', function () {
-	wp_enqueue_script('sage/customizer.js', asset_path('scripts/customizer.js'), ['customize-preview'], null, true);
+	wp_enqueue_script('sage/manifest.js', asset_path('js/manifest.js'), null, null, true);
+	wp_enqueue_script('sage/customizer.js', asset_path('js/customizer.js'), ['customize-preview'], null, true);
 });
 
-
-function ea_disable_gutenberg( $can_edit, $post_type ) {
-	if( ! ( is_admin() && !empty( $_GET['post'] ) ) )
-		return $can_edit;
-	if( \ea_disable_editor( $_GET['post'] ) )
-		$can_edit = false;
-	return $can_edit;
-}
-add_filter( 'gutenberg_can_edit_post_type', __NAMESPACE__.'\\ea_disable_gutenberg', 10, 2 );
