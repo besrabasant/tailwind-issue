@@ -1,5 +1,8 @@
 # Application
 web/app/plugins/*
+!web/app/plugins/github-updater
+!web/app/plugins/wp-sync-db
+!web/app/plugins/wp-sync-db-media-files
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
 web/app/upgrade
