@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
-require('laravel-mix-purgecss');
+let purgeCss = require('purgecss-webpack-plugin');
+let glob = require('glob-all');
+let path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,33 +14,56 @@ require('laravel-mix-purgecss');
  |
  */
 
- mix.setPublicPath('dist')
- .js('resources/assets/js/app.js', 'js/')
- .js('resources/assets/js/customizer.js', 'js/')
- .extract([
-   'babel-polyfill',
-   'vue'
-   ])
- .sass('resources/assets/sass/app.scss', 'css/')
- .options({
-   processCssUrls: false,
-   postCss: [ require('tailwindcss')('./tailwind.js') ],
- })
- .purgeCss()
-
- if (!mix.inProduction()) {
-   mix.browserSync({
-    proxy: 'yellowstudio.rogue',
-    port: 3002,
-    files: [
-    "resources/assets/sass/**/*.scss", 
-    "resources/assets/js/**/*.js", 
-    "resources/assets/js/**/*.vue", 
-    "resources/views/**/*.blade.php", 
+ if (mix.inProduction()) {
+  mix.webpackConfig({
+    plugins: [
+    new purgeCss({
+      paths: glob.sync([
+        path.join(__dirname, 'resources/views/**/*.blade.php'),
+        path.join(__dirname, 'resources/assets/js/**/*.vue')
+        ]),
+      extractors: [
+      {
+        extractor: class {
+          static extract(content) {
+            return content.match(/[A-z0-9-:\/]+/g)
+          }
+        },
+        extensions: ['html', 'js', 'php', 'vue']
+      }
+      ]
+    })
     ]
   })
- }
+}
 
- if (mix.inProduction()) {
+mix.setPublicPath('dist')
+.js('resources/assets/js/app.js', 'js/')
+.js('resources/assets/js/customizer.js', 'js/')
+.extract([
+ 'babel-polyfill',
+ 'vue'
+ ])
+.sass('resources/assets/sass/app.scss', 'css/')
+.options({
+ processCssUrls: false,
+ postCss: [ require('tailwindcss')('./tailwind.js') ],
+})
+
+
+if (!mix.inProduction()) {
+ mix.browserSync({
+  proxy: 'yellowstudio.rogue',
+  port: 8080,
+  files: [
+  "resources/assets/sass/**/*.scss", 
+  "resources/assets/js/**/*.js", 
+  "resources/assets/js/**/*.vue", 
+  "resources/views/**/*.blade.php", 
+  ]
+})
+}
+
+if (mix.inProduction()) {
   mix.version()
 }
